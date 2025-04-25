@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Assurez-vous que le chemin est correct pour GitHub Pages -->
+    <link rel="stylesheet" href="./style.css">
     <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -140,59 +141,59 @@
             </section>
   
             <!-- Section Projets -->
-<section id="projets" class="scroll-section">
-    <div class="projets-container">
-        <h1>Mes Projets</h1>
-        <div class="projets-content">
-            <div class="projet-grid">
-                <!-- Projet 1 -->
-                <a href="image/Projet de détection d'intrusion avec surricata.pdf" class="projet-card" target="_blank">
-                    <div class="projet-icon">
-                        <i class="fas fa-shield-alt"></i>
+            <section id="projets" class="scroll-section">
+                <div class="projets-container">
+                    <h1>Mes Projets</h1>
+                    <div class="projets-content">
+                        <div class="projet-grid">
+                            <!-- Projet 1 -->
+                            <a href="image/Projet de détection d'intrusion avec surricata.pdf" class="projet-card" target="_blank">
+                                <div class="projet-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h2>Déploiement de solution de détection d'intrusion</h2>
+                                <p>Mise en place d'un système IDS avec Suricata sur Debian</p>
+                            </a>
+                            
+                            <!-- Projet 2 -->
+                            <a href="image/Projet de suppervision de reseau avec zabbix.pdf" class="projet-card" target="_blank">
+                                <div class="projet-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h2>Supervision de réseau avec Zabbix</h2>
+                                <p>Monitoring réseau pour serveurs Windows et Linux</p>
+                            </a>
+                            
+                            <!-- Projet 3 -->
+                            <a href="image/Projet GLPI.pdf" class="projet-card" target="_blank">
+                                <div class="projet-icon">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <h2>Gestion des parcs avec GLPI</h2>
+                                <p>Gestion des équipements et suivi des incidents</p>
+                            </a>
+                            
+                            <!-- Projet 4 -->
+                            <a href="image/Projet sécurisation de dossier partager sous windows.pdf" class="projet-card" target="_blank">
+                                <div class="projet-icon">
+                                    <i class="fab fa-windows"></i>
+                                </div>
+                                <h2>Sécurisation de dossiers partagés</h2>
+                                <p>Politique de sécurité basée sur les droits NTFS</p>
+                            </a>
+                            
+                            <!-- Projet 5 -->
+                            <a href="image/Restructuration de Réseau par VLAN et Déploiement de Services.pdf" class="projet-card" target="_blank">
+                                <div class="projet-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h2>Restructuration de réseau par VLAN</h2>
+                                <p>Segmentation réseau et déploiement de services Linux</p>
+                            </a>
+                        </div>
                     </div>
-                    <h2>Déploiement de solution de détection d'intrusion</h2>
-                    <p>Mise en place d'un système IDS avec Suricata sur Debian</p>
-                </a>
-                
-                <!-- Projet 2 -->
-                <a href="image/Projet de suppervision de reseau avec zabbix.pdf" class="projet-card" target="_blank">
-                    <div class="projet-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h2>Supervision de réseau avec Zabbix</h2>
-                    <p>Monitoring réseau pour serveurs Windows et Linux</p>
-                </a>
-                
-                <!-- Projet 3 -->
-                <a href="image/Projet GLPI.pdf" class="projet-card" target="_blank">
-                    <div class="projet-icon">
-                        <i class="fas fa-ticket-alt"></i>
-                    </div>
-                    <h2>Gestion des parcs avec GLPI</h2>
-                    <p>Gestion des équipements et suivi des incidents</p>
-                </a>
-                
-                <!-- Projet 4 -->
-                <a href="image/Projet sécurisation de dossier partager sous windows.pdf" class="projet-card" target="_blank">
-                    <div class="projet-icon">
-                        <i class="fab fa-windows"></i>
-                    </div>
-                    <h2>Sécurisation de dossiers partagés</h2>
-                    <p>Politique de sécurité basée sur les droits NTFS</p>
-                </a>
-                
-                <!-- Projet 5 -->
-                <a href="image/Restructuration de Réseau par VLAN et Déploiement de Services.pdf" class="projet-card" target="_blank">
-                    <div class="projet-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h2>Restructuration de réseau par VLAN</h2>
-                    <p>Segmentation réseau et déploiement de services Linux</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+                </div>
+            </section>
 
             <!-- Section Épreuve E4 -->
             <section id="epreuve-e4" class="scroll-section">
@@ -276,6 +277,34 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+    
+    <!-- Script de secours pour afficher le contenu si le script principal échoue -->
+    <script>
+        // Vérifier si le contenu principal est visible après 3 secondes
+        setTimeout(function() {
+            const mainContent = document.getElementById('main-content');
+            const intro = document.getElementById('intro');
+            if (mainContent.classList.contains('hidden')) {
+                // Si toujours caché, on force l'affichage
+                console.log("Forçage de l'affichage du contenu");
+                if (intro) intro.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                mainContent.classList.add('visible');
+                
+                // Initialiser particles.js manuellement
+                if (typeof particlesJS !== 'undefined') {
+                    particlesJS('particles-js', {
+                        "particles": {
+                            "number": { "value": 80 },
+                            "color": { "value": "#3C6E9C" },
+                            "opacity": { "value": 0.5, "random": true },
+                            "size": { "value": 3, "random": true }
+                        }
+                    });
+                }
+            }
+        }, 3000);
+    </script>
 </body>
 </html>

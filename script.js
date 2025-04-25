@@ -7,8 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.scroll-section');
     const arrow = document.querySelector('.animated-arrow');
     
+    // Vérifions si les éléments sont trouvés
+    console.log("Intro trouvé:", intro !== null);
+    console.log("Main content trouvé:", mainContent !== null);
+    
     // Animation d'introduction
     setTimeout(() => {
+        if (!intro || !mainContent) return; // Protection contre les éléments non trouvés
+        
         intro.classList.add('fade-out');
         setTimeout(() => {
             intro.style.display = 'none';
@@ -28,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Fonction d'initialisation du contenu
     const initializeContent = () => {
+        if (!mainContent) return; // Protection
+        
         // Animer les formes d'arrière-plan
         initBackgroundShapes();
         
@@ -44,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (arrow) {
             arrow.addEventListener('click', () => {
                 const profilSection = document.getElementById('profil');
-                if (profilSection) {
-                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                if (profilSection && scrollContainer) {
+                    const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
                     const targetPosition = profilSection.offsetTop - navHeight;
                     
                     scrollContainer.scrollTo({
@@ -125,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Sélectionner tous les éléments qui réagiront au mouvement de la souris
         const shapesElems = document.querySelectorAll('.shape');
+        if (shapesElems.length === 0) return;
         
         shapesElems.forEach(shape => {
             // Calculer le facteur de mouvement (plus petit pour un effet plus subtil)
@@ -140,6 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fonction pour animer les formes d'arrière-plan
     const initBackgroundShapes = () => {
         const shapes = document.querySelectorAll('.shape');
+        if (shapes.length === 0) return;
+        
         shapes.forEach((shape, index) => {
             // Définir taille et position en fonction de l'index
             const size = 100 + (index * 50);
@@ -191,7 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Fonction d'initialisation des particules - Avec couleurs vibrantes
     const initParticles = () => {
-        if (typeof particlesJS !== 'undefined') {
+        if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+            console.log("Initialisation de particlesJS");
             particlesJS('particles-js', {
                 "particles": {
                     "number": {
@@ -297,11 +309,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 "retina_detect": true
             });
+        } else {
+            console.log("ParticlesJS non disponible ou élément particles-js non trouvé");
         }
     };
     
     // Mise à jour du lien actif lors du défilement
     const updateActiveLink = () => {
+        if (!sections || sections.length === 0 || !navLinks || navLinks.length === 0) return;
+        
         let currentSection = '';
         let smallestDistance = Infinity;
         
@@ -328,12 +344,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Configurer les observateurs
     const setupObservers = () => {
+        // Vérifier si IntersectionObserver est disponible
+        if (!('IntersectionObserver' in window)) {
+            console.log("IntersectionObserver n'est pas supporté");
+            return;
+        }
+        
         // Observer les cartes pour les animations
         const cardObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                    if (entry.isIntersecting) { entry.target.classList.add('visible');
                         
                         // Ajouter une animation spéciale pour les compétences
                         if (entry.target.classList.contains('competence-card')) {
@@ -360,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Observer toutes les cartes (profil, compétences, contact, etc.)
         document.querySelectorAll('.profil-card, .competence-card, .projet-card, .epreuve-card, .contact-card').forEach(card => {
-            cardObserver.observe(card);
+            if (card) cardObserver.observe(card);
         });
         
         // Observer les situations professionnelles pour animation
@@ -387,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Observer toutes les situations
         document.querySelectorAll('.situation-item').forEach((item, index) => {
+            if (!item) return;
             // Délai progressif pour chaque élément
             setTimeout(() => {
                 situationObserver.observe(item);
@@ -409,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Observer tous les titres de sections
         document.querySelectorAll('.scroll-section h1').forEach(title => {
-            titleObserver.observe(title);
+            if (title) titleObserver.observe(title);
         });
         
         // Observer les sections pour mettre à jour la navigation
@@ -427,11 +449,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Ajouter des particules uniquement à la section active
                             if (entry.target.id === 'accueil') {
                                 document.querySelectorAll('.shape').forEach(shape => {
-                                    shape.style.opacity = '0.3';
+                                    if (shape) shape.style.opacity = '0.3';
                                 });
                             } else {
                                 document.querySelectorAll('.shape').forEach(shape => {
-                                    shape.style.opacity = '0.15';
+                                    if (shape) shape.style.opacity = '0.15';
                                 });
                             }
                         } else {
@@ -447,57 +469,65 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         
         // Observer toutes les sections
-        sections.forEach(section => {
-            sectionObserver.observe(section);
-        });
+        if (sections && sections.length > 0) {
+            sections.forEach(section => {
+                if (section) sectionObserver.observe(section);
+            });
+        }
     };
     
     // Événement de défilement avec limitation de débit
     let scrollTimeout;
-    scrollContainer.addEventListener('scroll', () => {
-        // Annuler le précédent timeout pour éviter trop d'appels
-        if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
-        }
-        
-        // Parallax effect pour l'arrière-plan
-        const scrollY = scrollContainer.scrollTop;
-        document.querySelectorAll('.shape').forEach((shape, index) => {
-            const speed = 0.05 + (index * 0.01);
-            const yPos = scrollY * speed;
-            shape.style.transform = `translateY(${yPos}px)`;
+    if (scrollContainer) {
+        scrollContainer.addEventListener('scroll', () => {
+            // Annuler le précédent timeout pour éviter trop d'appels
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            
+            // Parallax effect pour l'arrière-plan
+            const scrollY = scrollContainer.scrollTop;
+            document.querySelectorAll('.shape').forEach((shape, index) => {
+                if (!shape) return;
+                const speed = 0.05 + (index * 0.01);
+                const yPos = scrollY * speed;
+                shape.style.transform = `translateY(${yPos}px)`;
+            });
+            
+            // Mettre à jour après un court délai pour améliorer les performances
+            scrollTimeout = setTimeout(() => {
+                updateActiveLink();
+            }, 50);
         });
-        
-        // Mettre à jour après un court délai pour améliorer les performances
-        scrollTimeout = setTimeout(() => {
-            updateActiveLink();
-        }, 50);
-    });
+    }
     
     // Navigation fluide avec correction de position
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                // Correction de la position de défilement pour compenser la barre de navigation
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetSection.offsetTop - navHeight;
+    if (navLinks && navLinks.length > 0) {
+        navLinks.forEach(link => {
+            if (!link) return;
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
                 
-                scrollContainer.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Mettre à jour les liens actifs après le défilement
-                setTimeout(() => {
-                    updateActiveLink();
-                }, 700);
-            }
+                if (targetSection && scrollContainer) {
+                    // Correction de la position de défilement pour compenser la barre de navigation
+                    const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    
+                    scrollContainer.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Mettre à jour les liens actifs après le défilement
+                    setTimeout(() => {
+                        updateActiveLink();
+                    }, 700);
+                }
+            });
         });
-    });
+    }
 
     // Ajouter des animations au survol pour les éléments interactifs
     document.addEventListener('mouseover', function(e) {
