@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Section intro -->
+    <div id="intro" class="intro-container">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <div class="welcome-text">Bienvenue sur mon portfolio</div>
+        </div>
+    </div>
+
+    <!-- Fond de particules dynamiques -->
+    <div id="particles-js" class="particles-container"></div>
+
+    <!-- Animation du fond -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- Contenu principal -->
+    <div id="main-content" class="hidden">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#epreuve-e4">Épreuve E4</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="scroll-container">
+            <!-- Section Accueil -->
+            <section id="accueil" class="scroll-section">
+                <div class="background-overlay"></div>
+                <div class="accueil-content">
+                    <h1 data-text="MANANTSOA GEORGES LOVATIANA">MANANTSOA <span>GEORGES</span> <span>LOVATIANA</span></h1>
+                    <h2>Bienvenue sur mon portfolio</h2>
+                    <p>Étudiant en BTS SIO option SISR</p>
+                    <div class="animated-arrow">
+                        <span>Découvrir</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Profil -->
+            <section id="profil" class="scroll-section">
+                <div class="profil-container">
+                    <h1>Mon Profil</h1>
+                    <div class="section-grid">
+                        <!-- À propos -->
+                        <div class="profil-card">
+                            <h2>À Propos</h2>
+                            <p>Étudiant passionné par l'informatique et les réseaux, je suis actuellement en BTS SIO option SISR.</p>
+                        </div>
+            
+                        <!-- Formation -->
+                        <div class="profil-card">
+                            <h2>Formation</h2>
+                            <ul class="formation-details">
+                                <li>BTS SIO option SISR - En cours</li>
+                                <li>Licence LEA deuxième année</li>
+                                <li>Baccalauréat général série Économique et Sociale</li>
+                            </ul>
+                        </div>
+            
+                        <!-- Objectifs -->
+                        <div class="profil-card">
+                            <h2>Mes Objectifs</h2>
+                            <ul class="objectives-list">
+                                <li>Développer une expertise approfondie en cybersécurité</li>
+                                <li>Acquérir des certifications professionnelles reconnues (CEH, Security+, CISSP)</li>
+                                <li>Me spécialiser dans l'analyse des vulnérabilités</li>
+                                <li>Participer à des projets de sécurisation d'infrastructures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Compétences -->
+            <section id="competences" class="scroll-section">
+                <div class="competences-container">
+                  <h1>Mes Compétences</h1>
+                  <div class="competences-grid">
+                    
+                    <div class="competence-card">
+                      <h2>Administration Systèmes & Réseaux</h2>
+                      <ul class="competence-list">
+                        <li><i class="fab fa-windows"></i> Windows Server</li>
+                        <li><i class="fas fa-shield-alt"></i> pfSense</li>
+                        <li><i class="fas fa-network-wired"></i> VLAN</li>
+                        <li><i class="fas fa-ticket-alt"></i> GLPI</li>
+                        <li><i class="fas fa-chart-line"></i> Zabbix</li>
+                        <li><i class="fas fa-eye"></i> Suricata</li>
+                      </ul>
+                    </div>
+              
+                    <div class="competence-card">
+                      <h2>Développement Web</h2>
+                      <ul class="competence-list">
+                        <li><i class="fab fa-html5"></i> HTML/CSS</li>
+                        <li><i class="fab fa-js"></i> JavaScript (notion)</li>
+                      </ul>
+                    </div>
+              
+                    <div class="competence-card">
+                      <h2>Outils Complémentaires</h2>
+                      <ul class="competence-list">
+                        <li><i class="fas fa-server"></i> VMware / VirtualBox</li>
+                        <li><i class="fab fa-linux"></i> Linux (Debian)</li>
+                        <li><i class="fas fa-project-diagram"></i> Packet Tracer</li>
+                      </ul>
+                    </div>
+              
+                    <div class="competence-card">
+                      <h2>Compétences Transversales</h2>
+                      <ul class="competence-list">
+                        <li><i class="fas fa-tasks"></i> Gestion de projet</li>
+                        <li><i class="fas fa-comments"></i> Communication</li>
+                        <li><i class="fas fa-users"></i> Travail en équipe</li>
+                      </ul>
+                    </div>
+                    
+                  </div>
+                </div>
+            </section>
+  
+ <!-- Section Projets -->
+<section id="projets" class="scroll-section">
+    <div class="projets-container">
+        <h1>Mes Projets</h1>
+        <div class="projets-content">
+            <div class="projet-grid">
+                <!-- Projet 1 -->
+                <a href="image/Projet de détection d'intrusion avec surricata.pdf" class="projet-card" target="_blank">
+                    <div class="projet-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2>Déploiement de solution de détection d'intrusion</h2>
+                    <p>Mise en place d'un système IDS avec Suricata sur Debian</p>
+                </a>
+                
+                <!-- Projet 2 -->
+                <a href="image/Projet de suppervision de reseau avec zabbix.pdf" class="projet-card" target="_blank">
+                    <div class="projet-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2>Supervision de réseau avec Zabbix</h2>
+                    <p>Monitoring réseau pour serveurs Windows et Linux</p>
+                </a>
+                
+                <!-- Projet 3 -->
+                <a href="image/Projet GLPI.pdf" class="projet-card" target="_blank">
+                    <div class="projet-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h2>Gestion des parcs avec GLPI</h2>
+                    <p>Gestion des équipements et suivi des incidents</p>
+                </a>
+                
+                <!-- Projet 4 -->
+                <a href="image/Projet sécurisation de dossier partager sous windows.pdf" class="projet-card" target="_blank">
+                    <div class="projet-icon">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h2>Sécurisation de dossiers partagés</h2>
+                    <p>Politique de sécurité basée sur les droits NTFS</p>
+                </a>
+                
+                <!-- Projet 5 -->
+                <a href="image/Restructuration de Réseau par VLAN et Déploiement de Services.pdf" class="projet-card" target="_blank">
+                    <div class="projet-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h2>Restructuration de réseau par VLAN</h2>
+                    <p>Segmentation réseau et déploiement de services Linux</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+            <!-- Section Épreuve E4 -->
+            <section id="epreuve-e4" class="scroll-section">
+                <div class="epreuve-container">
+                    <h1>Épreuve E4</h1>
+                    <div class="epreuve-content">
+                        <div class="epreuve-card">
+                            <h2>Présentation de l'épreuve</h2>
+                            <p>L'épreuve E4 "Support et mise à disposition de services informatiques" évalue les compétences acquises lors de situations professionnelles réelles ou simulées rencontrées pendant ma formation.</p>
+                            <p>Cette épreuve s'appuie sur un dossier personnel que j'ai constitué tout au long de ma formation et qui présente les différentes situations professionnelles dans lesquelles j'ai mis en œuvre mes compétences.</p>
+                        </div>
+                        
+                        <div class="epreuve-card">
+                            <h2>Situations professionnelles</h2>
+                            <div class="situation-list">
+                                <div class="situation-item">
+                                    <h3>Situation 1 : Mise en place d'une infrastructure réseau</h3>
+                                    <p>Configuration d'un environnement réseau sécurisé pour une PME, incluant la mise en place de VLAN, la configuration de pare-feu et l'implémentation de politiques de sécurité.</p>
+                                    <div class="situation-details">
+                                        <span class="situation-date">Janvier - Mars 2023</span>
+                                        <a href="#" class="situation-link">Voir le dossier</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="situation-item">
+                                    <h3>Situation 2 : Déploiement d'un système de supervision</h3>
+                                    <p>Installation et configuration d'une solution de supervision pour surveiller la disponibilité et les performances des serveurs et équipements réseau.</p>
+                                    <div class="situation-details">
+                                        <span class="situation-date">Avril - Juin 2023</span>
+                                        <a href="#" class="situation-link">Voir le dossier</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="situation-item">
+                                    <h3>Situation 3 : Sécurisation d'un environnement Windows Server</h3>
+                                    <p>Mise en place de politiques de sécurité et de solutions d'authentification pour protéger un environnement Windows Server contre les menaces internes et externes.</p>
+                                    <div class="situation-details">
+                                        <span class="situation-date">Septembre - Novembre 2023</span>
+                                        <a href="#" class="situation-link">Voir le dossier</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Contact - Améliorée -->
+            <section id="contact" class="scroll-section">
+                <div class="contact-container">
+                    <div class="contact-header">
+                        <h1 class="contact-title">Contact</h1>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <p>N'hésitez pas à me contacter pour toute question.</p>
+                            
+                            <div class="contact-links">
+                                <a href="mailto:lovamanantsoa823@gmail.com" class="contact-item" title="Envoyer un email">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                    </svg>
+                                    <span>lovamanantsoa823@gmail.com</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/l-manantsoa" target="_blank" rel="noopener noreferrer" class="contact-item" title="Voir le profil LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                        <rect x="2" y="9" width="4" height="12"/>
+                                        <circle cx="4" cy="4" r="2"/>
+                                    </svg>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
