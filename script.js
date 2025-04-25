@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     // Éléments de l'interface
     const intro = document.getElementById('intro');
@@ -140,52 +141,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fonction pour animer les formes d'arrière-plan
     const initBackgroundShapes = () => {
         const shapes = document.querySelectorAll('.shape');
-        shapes.forEach((shape, index) => {
-            // Définir taille et position en fonction de l'index
-            const size = 100 + (index * 50);
-            shape.style.width = `${size}px`;
-            shape.style.height = `${size}px`;
-            
-            // Positionner les formes à des endroits différents de l'écran
-            switch(index) {
-                case 0:
-                    shape.style.top = '10%';
-                    shape.style.left = '5%';
-                    break;
-                case 1:
-                    shape.style.top = '60%';
-                    shape.style.right = '10%';
-                    break;
-                case 2:
-                    shape.style.top = '30%';
-                    shape.style.right = '20%';
-                    break;
-                case 3:
-                    shape.style.bottom = '15%';
-                    shape.style.left = '20%';
-                    break;
-                case 4:
-                    shape.style.top = '5%';
-                    shape.style.right = '5%';
-                    break;
-                default:
-                    shape.style.top = '50%';
-                    shape.style.left = '50%';
-            }
-            
-            // Animation aléatoire
+        shapes.forEach(shape => {
+            // Position aléatoire
             const randomPosition = () => {
-                const translateX = Math.random() * 20 - 10;
-                const translateY = Math.random() * 20 - 10;
-                const rotate = Math.random() * 360;
-                shape.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+                shape.style.transform = `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(${Math.random() * 360}deg)`;
             };
             
             // Animation initiale
             randomPosition();
             
-            // Animation continue avec un intervalle différent pour chaque forme
-            setInterval(randomPosition, 5000 + (index * 1000));
+            // Animation continue
+            setInterval(randomPosition, 5000 + Math.random() * 5000);
         });
     };
     
@@ -513,4 +479,5 @@ document.addEventListener('DOMContentLoaded', () => {
             link.style.transition = 'transform 0.3s ease, color 0.3s ease';
         }
     });
+    f64ea91ffbba616cfd3f7e623d1cca46e2a5f43d
 });
