@@ -13,24 +13,26 @@
     --almost-black: #333333;
     --black: #222222;
 
-    /* Couleurs d'accentuation enrichies */
+    /* Couleurs d'accentuation */
     --accent-blue: #3C6E9C;
     --accent-teal: #42A5A5;
-    --accent-purple: #7E57C2;
+    --accent-green: #4CAF50;
+    --accent-turquoise: #26C6DA;
     --accent-indigo: #5C6BC0;
-    --accent-slate: #607D8B;
-    --accent-gold: #FFB74D;
-    --accent-coral: #FF7043;
+    --accent-purple: #7E57C2;
+    --accent-cyan: #29B6F6;
 
     /* Nuances complémentaires */
     --light-blue: #90CAF9;
     --light-teal: #80DEEA;
+    --light-green: #A5D6A7;
     --light-purple: #B39DDB;
-    --light-coral: #FFAB91;
+    --light-cyan: #81D4FA;
 
     /* Dégradés vibrants */
     --gradient-blue: linear-gradient(135deg, #3C6E9C 0%, #5C6BC0 100%);
     --gradient-teal: linear-gradient(135deg, #42A5A5 0%, #80DEEA 100%);
+    --gradient-green: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
     --gradient-purple: linear-gradient(135deg, #7E57C2 0%, #B39DDB 100%);
     --gradient-mix: linear-gradient(135deg, #3C6E9C 0%, #42A5A5 50%, #7E57C2 100%);
     --gradient-dark: linear-gradient(135deg, #333333 0%, #607D8B 100%);
@@ -172,7 +174,7 @@ body {
     height: 150px;
     bottom: 5%;
     left: 20%;
-    background: linear-gradient(45deg, var(--accent-coral), var(--light-coral));
+    background: linear-gradient(45deg, var(--accent-turquoise), var(--light-cyan));
     animation-delay: 6s;
 }
 
@@ -181,7 +183,7 @@ body {
     height: 120px;
     top: 5%;
     right: 5%;
-    background: linear-gradient(45deg, var(--accent-gold), var(--accent-coral));
+    background: linear-gradient(45deg, var(--accent-green), var(--light-green));
     animation-delay: 8s;
 }
 
@@ -440,7 +442,6 @@ body {
     }
 }
 
-
 .accueil-content h1 {
     font-size: 3rem;
     font-weight: 800;
@@ -448,7 +449,6 @@ body {
     position: relative;
     letter-spacing: 1px;
 }
-
 
 .accueil-content h1 span {
     color: var(--almost-black); /* Utilise la même couleur que le reste du h1 */
@@ -524,7 +524,8 @@ body {
 .competences-container,
 .projets-container,
 .epreuve-container,
-.contact-container {
+.contact-container,
+.veille-container {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -535,7 +536,8 @@ body {
 .competences-container h1,
 .projets-container h1,
 .epreuve-container h1,
-.contact-container h1 {
+.contact-container h1,
+.veille-container h1 {
     text-align: center;
     margin-bottom: 50px;
     font-size: 2.5rem;
@@ -547,7 +549,8 @@ body {
 .competences-container h1::after,
 .projets-container h1::after,
 .epreuve-container h1::after,
-.contact-container h1::after {
+.contact-container h1::after,
+.veille-container h1::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -574,7 +577,11 @@ body {
 }
 
 .contact-container h1::after {
-    background: var(--gradient-teal);
+    background: var(--gradient-green);
+}
+
+.veille-container h1::after {
+    background: var(--gradient-green);
 }
 
 /* Grilles de contenus */
@@ -615,7 +622,6 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-
 /* Titres des cartes */
 .profil-card h2,
 .competence-card h2,
@@ -635,7 +641,7 @@ body {
 }
 
 .epreuve-card h2 {
-    color: var(--accent-slate);
+    color: var(--accent-cyan);
 }
 
 .profil-card h2::after,
@@ -659,6 +665,45 @@ body {
 
 .epreuve-card h2::after {
     background-color: var(--accent-indigo);
+}
+
+/* Nouveau style pour les images de projet */
+.projet-image {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.projet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.projet-card:hover .projet-image img {
+    transform: scale(1.05);
+}
+
+/* Ajouter un overlay élégant au survol */
+.projet-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(38, 198, 218, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.projet-card:hover .projet-image::after {
+    opacity: 1;
 }
 
 /* Contenu des cartes */
@@ -731,13 +776,13 @@ body {
 }
 
 .situation-link {
-    color: var(--accent-teal);
+    color: var(--accent-turquoise);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .situation-link:hover {
-    color: var(--accent-coral);
+    color: var(--accent-cyan);
     text-decoration: underline;
 }
 
@@ -767,7 +812,7 @@ body {
 
 .contact-item:hover {
     transform: translateY(-3px);
-    color: var(--accent-coral);
+    color: var(--accent-green);
 }
 
 .contact-item svg {
@@ -808,46 +853,8 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Nouveau style pour les images de projet */
-.projet-image {
-    width: 100%;
-    height: 180px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-}
-
-.projet-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.projet-card:hover .projet-image img {
-    transform: scale(1.05);
-}
-
-/* Ajouter un overlay élégant au survol */
-.projet-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, rgba(60, 110, 156, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.projet-card:hover .projet-image::after {
-    opacity: 1;
-}
-
 .projet-card h2 {
-    color: var(--accent-coral);
+    color: var(--accent-turquoise);
     font-size: 1.3rem;
     margin-bottom: 10px;
     position: relative;
@@ -861,13 +868,381 @@ body {
     transform: translateX(-50%);
     width: 50px;
     height: 2px;
-    background-color: var(--accent-gold);
+    background-color: var(--accent-green);
 }
 
 .projet-card p {
     color: var(--text-medium);
     line-height: 1.5;
     font-size: 0.95rem;
+}
+
+/* Styles pour la section Veille Technologique */
+.veille-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.veille-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-medium);
+}
+
+.veille-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.veille-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.veille-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.veille-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.veille-header {
+    background: var(--gradient-blue);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.veille-card:nth-child(2) .veille-header {
+    background: var(--gradient-purple);
+}
+
+.veille-card:nth-child(3) .veille-header {
+    background: var(--gradient-teal);
+}
+
+.veille-header i {
+    font-size: 1.8rem;
+}
+
+.veille-header h2 {
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.veille-content {
+    padding: 25px;
+}
+
+.veille-url {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.veille-url a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.veille-url a:hover {
+    color: var(--accent-teal);
+    text-decoration: underline;
+}
+
+.veille-content h3 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.veille-topics {
+    list-style: none;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.veille-topics li {
+    display: flex;
+    align-items: center;
+    color: var(--text-medium);
+}
+
+.veille-topics li i {
+    color: var(--accent-blue);
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.veille-why, .veille-example {
+    margin-bottom: 25px;
+}
+
+.veille-example-content {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    padding: 15px;
+    position: relative;
+}
+
+
+    .veille-example-content::before {
+        content: "\201C"; /* Code Unicode pour le guillemet ouvrant « " » */
+        font-size: 3rem;
+        color: var(--accent-blue);
+        opacity: 0.2;
+        position: absolute;
+        top: -5px;
+        left: 5px;
+    }
+
+.veille-example-content p {
+    position: relative;
+    font-style: italic;
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+.veille-methodology {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.veille-methodology.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.veille-methodology h2 {
+    font-size: 1.8rem;
+    color: var(--accent-teal);
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.veille-methodology h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-teal);
+}
+
+.methodology-content {
+    margin-top: 25px;
+}
+
+.methodology-content p {
+    margin-bottom: 20px;
+    color: var(--text-medium);
+    font-size: 1.1rem;
+}
+
+.methodology-list {
+    list-style: none;
+}
+
+.methodology-list li {
+    margin-bottom: 15px;
+    color: var(--text-medium);
+    display: flex;
+    align-items: center;
+    line-height: 1.6;
+}
+
+.methodology-list li i {
+    color: var(--accent-teal);
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.veille-benefits {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.veille-benefits.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.veille-benefits h2 {
+    font-size: 1.8rem;
+    color: var(--accent-purple);
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.veille-benefits h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-purple);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--off-white);
+    transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-item i {
+    font-size: 2rem;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+}
+
+.benefit-item:nth-child(2) i {
+    color: var(--accent-teal);
+}
+
+.benefit-item:nth-child(3) i {
+    color: var(--accent-purple);
+}
+
+.benefit-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.benefit-item p {
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+/* Améliorations pour la grille des projets */
+.projet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center; /* Centre les éléments horizontalement */
+}
+
+@media (min-width: 992px) {
+    /* Pour les grands écrans, force 3 colonnes uniformes */
+    .projet-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Pour les écrans moyens, force 2 colonnes uniformes */
+    .projet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.projet-card {
+    width: 100%; /* Assure que toutes les cartes ont la même largeur */
+    height: 100%; /* Assure que toutes les cartes ont la même hauteur dans leur rangée */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projet-image {
+    width: 100%;
+    height: 180px; /* Hauteur fixe pour toutes les images */
+    margin-bottom: 20px; /* Plus d'espace entre l'image et le titre */
+}
+
+/* Amélioration des cartes de compétences */
+.competences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+@media (min-width: 992px) {
+    /* Pour les grands écrans, force 2 colonnes uniformes */
+    .competences-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.competence-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.competence-card h2 {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--light-gray);
+    text-align: center;
+}
+
+/* Pour uniformiser les hauteurs des cartes si nécessaire */
+.equal-height-cards .projet-card,
+.equal-height-cards .competence-card,
+.equal-height-cards .profil-card,
+.equal-height-cards .veille-card {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Responsive Design */
@@ -898,12 +1273,30 @@ body {
     .competences-container h1,
     .projets-container h1,
     .epreuve-container h1,
-    .contact-title {
+    .contact-container h1,
+    .veille-container h1 {
         font-size: 2rem;
     }
     
     .projet-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .veille-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .veille-topics {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .veille-methodology,
+    .veille-benefits {
+        padding: 20px;
     }
 }
 
@@ -946,5 +1339,20 @@ body {
     
     .projet-image {
         height: 160px;
+    }
+    
+    .veille-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .veille-content {
+        padding: 20px;
+    }
+    
+    .veille-methodology h2,
+    .veille-benefits h2 {
+        font-size: 1.5rem;
     }
 }

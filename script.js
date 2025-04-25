@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Créer les points flottants de décoration
             createFloatingDots();
         }, 500);
-    }, 2000); // Réduit le temps d'attente à 2 secondes
+    }, 2000); // Temps d'attente de 2 secondes
     
     // Fonction d'initialisation du contenu
     const initializeContent = () => {
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         
         // Observer toutes les cartes (profil, compétences, contact, etc.)
-        document.querySelectorAll('.profil-card, .competence-card, .projet-card, .epreuve-card, .contact-card').forEach(card => {
+        document.querySelectorAll('.profil-card, .competence-card, .projet-card, .epreuve-card, .contact-card, .veille-card, .veille-methodology, .veille-benefits').forEach(card => {
             if (card) cardObserver.observe(card);
         });
         
@@ -533,8 +533,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ajouter des animations au survol pour les éléments interactifs
     document.addEventListener('mouseover', function(e) {
         // Animation au survol des cartes
-        if (e.target.closest('.profil-card, .competence-card, .projet-card, .epreuve-card, .contact-card')) {
-            const card = e.target.closest('.profil-card, .competence-card, .projet-card, .epreuve-card, .contact-card');
+        if (e.target.closest('.profil-card, .competence-card, .projet-card, .epreuve-card, .contact-card, .veille-card, .benefit-item')) {
+            const card = e.target.closest('.profil-card, .competence-card, .projet-card, .epreuve-card, .contact-card, .veille-card, .benefit-item');
             card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
         }
         

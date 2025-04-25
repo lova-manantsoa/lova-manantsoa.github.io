@@ -38,6 +38,7 @@
                 <li><a href="#profil">Profil</a></li>
                 <li><a href="#competences">Compétences</a></li>
                 <li><a href="#projets">Projets</a></li>
+                <li><a href="#veille">Veille</a></li>
                 <li><a href="#epreuve-e6">Épreuve E6</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -92,117 +93,252 @@
                 </div>
             </section>
 
-            <!-- Section Compétences -->
+            <!-- Section Compétences avec structure améliorée -->
             <section id="competences" class="scroll-section">
                 <div class="competences-container">
-                  <h1>Mes Compétences</h1>
-                  <div class="competences-grid">
+                    <h1>Mes Compétences</h1>
+                    <div class="competences-grid equal-height-cards">
+                      
+                      <div class="competence-card">
+                        <h2>Administration Systèmes & Réseaux</h2>
+                        <ul class="competence-list">
+                          <li><i class="fab fa-windows"></i> Windows Server</li>
+                          <li><i class="fas fa-shield-alt"></i> pfSense</li>
+                          <li><i class="fas fa-network-wired"></i> VLAN</li>
+                          <li><i class="fas fa-ticket-alt"></i> GLPI</li>
+                          <li><i class="fas fa-chart-line"></i> Zabbix</li>
+                          <li><i class="fas fa-eye"></i> Suricata</li>
+                        </ul>
+                      </div>
                     
-                    <div class="competence-card">
-                      <h2>Administration Systèmes & Réseaux</h2>
-                      <ul class="competence-list">
-                        <li><i class="fab fa-windows"></i> Windows Server</li>
-                        <li><i class="fas fa-shield-alt"></i> pfSense</li>
-                        <li><i class="fas fa-network-wired"></i> VLAN</li>
-                        <li><i class="fas fa-ticket-alt"></i> GLPI</li>
-                        <li><i class="fas fa-chart-line"></i> Zabbix</li>
-                        <li><i class="fas fa-eye"></i> Suricata</li>
-                      </ul>
-                    </div>
-              
-                    <div class="competence-card">
-                      <h2>Développement Web</h2>
-                      <ul class="competence-list">
-                        <li><i class="fab fa-html5"></i> HTML/CSS</li>
-                        <li><i class="fab fa-js"></i> JavaScript (notion)</li>
-                      </ul>
-                    </div>
-              
-                    <div class="competence-card">
-                      <h2>Outils Complémentaires</h2>
-                      <ul class="competence-list">
-                        <li><i class="fas fa-server"></i> VMware / VirtualBox</li>
-                        <li><i class="fab fa-linux"></i> Linux (Debian)</li>
-                        <li><i class="fas fa-project-diagram"></i> Packet Tracer</li>
-                      </ul>
-                    </div>
-              
-                    <div class="competence-card">
-                      <h2>Compétences Transversales</h2>
-                      <ul class="competence-list">
-                        <li><i class="fas fa-tasks"></i> Gestion de projet</li>
-                        <li><i class="fas fa-comments"></i> Communication</li>
-                        <li><i class="fas fa-users"></i> Travail en équipe</li>
-                      </ul>
-                    </div>
+                      <div class="competence-card">
+                        <h2>Développement Web</h2>
+                        <ul class="competence-list">
+                          <li><i class="fab fa-html5"></i> HTML/CSS</li>
+                          <li><i class="fab fa-js"></i> JavaScript (notion)</li>
+                          <li><i class="fab fa-php"></i> PHP (bases)</li>
+                        </ul>
+                      </div>
                     
-                  </div>
+                      <div class="competence-card">
+                        <h2>Outils Complémentaires</h2>
+                        <ul class="competence-list">
+                          <li><i class="fas fa-server"></i> VMware / VirtualBox</li>
+                          <li><i class="fab fa-linux"></i> Linux (Debian)</li>
+                          <li><i class="fas fa-project-diagram"></i> Packet Tracer</li>
+                          <li><i class="fas fa-terminal"></i> PowerShell</li>
+                          <li><i class="fas fa-database"></i> SQL (bases)</li>
+                        </ul>
+                      </div>
+                    
+                      <div class="competence-card">
+                        <h2>Compétences Transversales</h2>
+                        <ul class="competence-list">
+                          <li><i class="fas fa-tasks"></i> Gestion de projet</li>
+                          <li><i class="fas fa-comments"></i> Communication</li>
+                          <li><i class="fas fa-users"></i> Travail en équipe</li>
+                          <li><i class="fas fa-file-alt"></i> Documentation technique</li>
+                        </ul>
+                      </div>
+                      
+                    </div>
                 </div>
             </section>
-  
-           <!-- Section Projets -->
-<section id="projets" class="scroll-section">
-    <div class="projets-container">
-        <h1>Mes Projets</h1>
-        <div class="projets-content">
-            <div class="projet-grid">
-                <!-- Projet 1 -->
-                <a href="image/Projet de détection d'intrusion avec surricata.pdf" class="projet-card" target="_blank">
-                    <div class="projet-image">
-                        <img src="image/suricata.png" alt="Système IDS avec Suricata" />
+
+            <!-- Section Projets avec structure améliorée -->
+            <section id="projets" class="scroll-section">
+                <div class="projets-container">
+                    <h1>Mes Projets</h1>
+                    <div class="projets-content">
+                        <div class="projet-grid equal-height-cards">
+                            <!-- Projet 1 -->
+                            <a href="image/Projet de détection d'intrusion avec surricata.pdf" class="projet-card" target="_blank">
+                                <div class="projet-image">
+                                    <img src="image/suricata.png" alt="Système IDS avec Suricata" />
+                                </div>
+                                <h2>Déploiement de solution de détection d'intrusion</h2>
+                                <p>Mise en place d'un système IDS avec Suricata sur Debian</p>
+                            </a>
+                            
+                            <!-- Projet 2 -->
+                            <a href="image/Projet de suppervision de reseau avec zabbix.pdf" class="projet-card" target="_blank">
+                                <div class="projet-image">
+                                    <img src="image/zabbix.png" alt="Supervision avec Zabbix" />
+                                </div>
+                                <h2>Supervision de réseau avec Zabbix</h2>
+                                <p>Monitoring réseau pour serveurs Windows et Linux</p>
+                            </a>
+                            
+                            <!-- Projet 3 -->
+                            <a href="image/Projet GLPI.pdf" class="projet-card" target="_blank">
+                                <div class="projet-image">
+                                    <img src="image/glpi.png" alt="Gestion des parcs avec GLPI" />
+                                </div>
+                                <h2>Gestion des parcs avec GLPI</h2>
+                                <p>Gestion des équipements et suivi des incidents</p>
+                            </a>
+                            
+                            <!-- Projet 4 -->
+                            <a href="image/Projet sécurisation de dossier partager sous windows.pdf" class="projet-card" target="_blank">
+                                <div class="projet-image">
+                                    <img src="image/windows.jpg" alt="Sécurisation de dossiers partagés" />
+                                </div>
+                                <h2>Sécurisation de dossiers partagés</h2>
+                                <p>Politique de sécurité basée sur les droits NTFS</p>
+                            </a>
+                            
+                            <!-- Projet 5 -->
+                            <a href="image/Restructuration de Réseau par VLAN et Déploiement de Services.pdf" class="projet-card" target="_blank">
+                                <div class="projet-image">
+                                    <img src="image/vlan.jpg" alt="Restructuration de réseau par VLAN" />
+                                </div>
+                                <h2>Restructuration de réseau par VLAN</h2>
+                                <p>Segmentation réseau et déploiement de services Linux</p>
+                            </a>
+                            
+                            <!-- Projet 6 -->
+                            <a href="image/Projet de deploiement de service DMZ avec PFsense final.pdf" class="projet-card" target="_blank">
+                                <div class="projet-image">
+                                    <img src="image/pfsense.jpg" alt="Déploiement de DMZ avec pfSense" />
+                                </div>
+                                <h2>Déploiement de DMZ avec pfSense</h2>
+                                <p>Configuration d'une zone démilitarisée pour sécuriser l'infrastructure réseau</p>
+                            </a>
+                        </div>
                     </div>
-                    <h2>Déploiement de solution de détection d'intrusion</h2>
-                    <p>Mise en place d'un système IDS avec Suricata sur Debian</p>
-                </a>
-                
-                <!-- Projet 2 -->
-                <a href="image/Projet de suppervision de reseau avec zabbix.pdf" class="projet-card" target="_blank">
-                    <div class="projet-image">
-                        <img src="image/zabbix.png" alt="Supervision avec Zabbix" />
+                </div>
+            </section>
+
+            <!-- Nouvelle Section Veille Technologique -->
+            <section id="veille" class="scroll-section">
+                <div class="veille-container">
+                    <h1>Ma Veille Technologique</h1>
+                    <div class="veille-intro">
+                        <p>Dans le domaine de la cybersécurité et des réseaux, rester informé des dernières actualités et évolutions est essentiel. Voici les principales sources que je consulte régulièrement pour ma veille technologique :</p>
                     </div>
-                    <h2>Supervision de réseau avec Zabbix</h2>
-                    <p>Monitoring réseau pour serveurs Windows et Linux</p>
-                </a>
-                
-                <!-- Projet 3 -->
-                <a href="image/Projet GLPI.pdf" class="projet-card" target="_blank">
-                    <div class="projet-image">
-                        <img src="image/glpi.png" alt="Gestion des parcs avec GLPI" />
+                    
+                    <div class="veille-grid equal-height-cards">
+                        <!-- Source 1 - Zataz -->
+                        <div class="veille-card">
+                            <div class="veille-header">
+                                <i class="fas fa-lock"></i>
+                                <h2>Zataz</h2>
+                            </div>
+                            <div class="veille-content">
+                                <p class="veille-url"><a href="https://www.zataz.com" target="_blank">www.zataz.com</a></p>
+                                <h3>Thématiques suivies</h3>
+                                <ul class="veille-topics">
+                                    <li><i class="fas fa-shield-alt"></i> Cybersécurité</li>
+                                    <li><i class="fas fa-user-secret"></i> Piratage</li>
+                                    <li><i class="fas fa-database"></i> Protection des données</li>
+                                    <li><i class="fas fa-virus"></i> Failles de sécurité</li>
+                                </ul>
+                                <div class="veille-why">
+                                    <h3>Pourquoi cette source ?</h3>
+                                    <p>Zataz est une référence en matière de cybersécurité qui couvre en temps réel les dernières failles de sécurité, les attaques en cours, et les informations sensibles dans le domaine de la sécurité informatique. Cette source me permet d'être alerté rapidement sur les nouvelles menaces.</p>
+                                </div>
+                                <div class="veille-example">
+                                    <h3>Exemple d'actualité suivie</h3>
+                                    <div class="veille-example-content">
+                                        <p>Les rapports détaillés sur les dernières vulnérabilités zero-day découvertes dans les systèmes d'exploitation et applications courantes, avec analyse des méthodes d'exploitation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Source 2 - Korben -->
+                        <div class="veille-card">
+                            <div class="veille-header">
+                                <i class="fas fa-brain"></i>
+                                <h2>Korben</h2>
+                            </div>
+                            <div class="veille-content">
+                                <p class="veille-url"><a href="https://korben.info" target="_blank">korben.info</a></p>
+                                <h3>Thématiques suivies</h3>
+                                <ul class="veille-topics">
+                                    <li><i class="fas fa-laptop-code"></i> Technologies émergentes</li>
+                                    <li><i class="fas fa-shield-alt"></i> Cybersécurité</li>
+                                    <li><i class="fab fa-linux"></i> Logiciels libres</li>
+                                    <li><i class="fas fa-user-secret"></i> Vie privée</li>
+                                </ul>
+                                <div class="veille-why">
+                                    <h3>Pourquoi cette source ?</h3>
+                                    <p>Korben propose des articles accessibles, parfois décalés, mais toujours pertinents sur les nouvelles technologies et la sécurité informatique. Le blog fournit également des outils pratiques et des réflexions intéressantes sur l'évolution du monde numérique.</p>
+                                </div>
+                                <div class="veille-example">
+                                    <h3>Exemple d'actualité suivie</h3>
+                                    <div class="veille-example-content">
+                                        <p>Les tutoriels détaillés sur la mise en place de solutions de protection de la vie privée et les alternatives aux services mainstream qui respectent mieux la confidentialité des données.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Source 3 - UnderNews -->
+                        <div class="veille-card">
+                            <div class="veille-header">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h2>UnderNews</h2>
+                            </div>
+                            <div class="veille-content">
+                                <p class="veille-url"><a href="https://www.undernews.fr" target="_blank">www.undernews.fr</a></p>
+                                <h3>Thématiques suivies</h3>
+                                <ul class="veille-topics">
+                                    <li><i class="fas fa-bug"></i> Cybermenaces</li>
+                                    <li><i class="fas fa-file-export"></i> Fuites de données</li>
+                                    <li><i class="fas fa-mask"></i> Cybercriminalité</li>
+                                    <li><i class="fas fa-terminal"></i> Hacking</li>
+                                </ul>
+                                <div class="veille-why">
+                                    <h3>Pourquoi cette source ?</h3>
+                                    <p>UnderNews est très proche de l'actualité cybersécurité avec un bon niveau de détail sur les attaques récentes et les nouvelles failles. Le site fournit une analyse approfondie des incidents de sécurité majeurs et suit l'évolution des menaces.</p>
+                                </div>
+                                <div class="veille-example">
+                                    <h3>Exemple d'actualité suivie</h3>
+                                    <div class="veille-example-content">
+                                        <p>Les analyses détaillées des grandes campagnes de ransomware, avec des informations sur les vecteurs d'attaque utilisés et les recommandations pour s'en protéger.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h2>Gestion des parcs avec GLPI</h2>
-                    <p>Gestion des équipements et suivi des incidents</p>
-                </a>
-                
-                <!-- Projet 4 -->
-                <a href="image/Projet sécurisation de dossier partager sous windows.pdf" class="projet-card" target="_blank">
-                    <div class="projet-image">
-                        <img src="image/windows.jpg" alt="Sécurisation de dossiers partagés" />
+                    
+                    <div class="veille-methodology">
+                        <h2>Ma méthodologie de veille</h2>
+                        <div class="methodology-content">
+                            <p>Pour rester constamment informé des dernières évolutions en matière de cybersécurité :</p>
+                            <ul class="methodology-list">
+                                <li><i class="fas fa-rss"></i> <strong>Agrégateur RSS</strong> : Utilisation de Feedly pour centraliser les flux d'actualités</li>
+                                <li><i class="fas fa-bell"></i> <strong>Alertes</strong> : Configuration d'alertes sur des mots-clés spécifiques liés à la sécurité des réseaux</li>
+                                <li><i class="fas fa-calendar-check"></i> <strong>Routine quotidienne</strong> : 30 minutes dédiées chaque jour à la consultation des sources</li>
+                                <li><i class="fas fa-file-alt"></i> <strong>Documentation</strong> : Synthèse hebdomadaire des informations les plus pertinentes</li>
+                                <li><i class="fas fa-hands-helping"></i> <strong>Partage</strong> : Échange régulier avec la communauté via les forums spécialisés</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h2>Sécurisation de dossiers partagés</h2>
-                    <p>Politique de sécurité basée sur les droits NTFS</p>
-                </a>
-                
-                <!-- Projet 5 -->
-                <a href="image/Restructuration de Réseau par VLAN et Déploiement de Services.pdf" class="projet-card" target="_blank">
-                    <div class="projet-image">
-                        <img src="image/vlan.jpg" alt="Restructuration de réseau par VLAN" />
+                    
+                    <div class="veille-benefits">
+                        <h2>Bénéfices pour mes projets</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>Anticipation des menaces</h3>
+                                <p>La veille me permet d'anticiper les nouvelles menaces et d'adapter mes configurations de sécurité en conséquence.</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-tools"></i>
+                                <h3>Découverte d'outils</h3>
+                                <p>Je découvre régulièrement de nouveaux outils et méthodologies que j'intègre dans mes projets réseau et sécurité.</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h3>Formation continue</h3>
+                                <p>Cette veille constitue une formation continue essentielle qui complète mes compétences techniques.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h2>Restructuration de réseau par VLAN</h2>
-                    <p>Segmentation réseau et déploiement de services Linux</p>
-                </a>
-                
-                <!-- Projet 6 -->
-                <a href="image/Projet de deploiement de service DMZ avec PFsense final.pdf" class="projet-card" target="_blank">
-                    <div class="projet-image">
-                        <img src="image/pfsense.jpg" alt="Déploiement de DMZ avec pfSense" />
-                    </div>
-                    <h2>Déploiement de DMZ avec pfSense</h2>
-                    <p>Configuration d'une zone démilitarisée pour sécuriser l'infrastructure réseau</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+                </div>
+            </section>
 
             <!-- Section Épreuve E6 -->
             <section id="epreuve-e6" class="scroll-section">
