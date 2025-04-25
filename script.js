@@ -354,7 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const cardObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) { entry.target.classList.add('visible');
+                    if (entry.isIntersecting) { 
+                        entry.target.classList.add('visible');
                         
                         // Ajouter une animation spéciale pour les compétences
                         if (entry.target.classList.contains('competence-card')) {

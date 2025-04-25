@@ -136,7 +136,7 @@ body {
     background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
     animation: float 15s infinite ease-in-out;
     opacity: 0.15;
-    transition: transform 0.8s ease-out;
+    transition: transform 0.8s ease-out, opacity 0.5s ease;
     will-change: transform;
 }
 
@@ -230,6 +230,17 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+.floating-dots-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 .floating-dots {
@@ -435,8 +446,6 @@ body {
     font-weight: 800;
     margin-bottom: 15px;
     position: relative;
-  
-    
     letter-spacing: 1px;
 }
 
@@ -580,7 +589,6 @@ body {
 /* Cartes */
 .profil-card,
 .competence-card,
-.projet-card,
 .epreuve-card,
 .contact-card {
     background-color: var(--white);
@@ -594,7 +602,6 @@ body {
 
 .profil-card.visible,
 .competence-card.visible,
-.projet-card.visible,
 .epreuve-card.visible,
 .contact-card.visible {
     opacity: 1;
@@ -603,7 +610,6 @@ body {
 
 .profil-card:hover,
 .competence-card:hover,
-.projet-card:hover,
 .epreuve-card:hover,
 .contact-card:hover {
     transform: translateY(-5px);
@@ -613,7 +619,6 @@ body {
 /* Titres des cartes */
 .profil-card h2,
 .competence-card h2,
-.projet-card h2,
 .epreuve-card h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -629,17 +634,12 @@ body {
     color: var(--accent-purple);
 }
 
-.projet-card h2 {
-    color: var(--accent-coral);
-}
-
 .epreuve-card h2 {
     color: var(--accent-slate);
 }
 
 .profil-card h2::after,
 .competence-card h2::after,
-.projet-card h2::after,
 .epreuve-card h2::after {
     content: '';
     position: absolute;
@@ -657,10 +657,6 @@ body {
     background-color: var(--accent-indigo);
 }
 
-.projet-card h2::after {
-    background-color: var(--accent-gold);
-}
-
 .epreuve-card h2::after {
     background-color: var(--accent-indigo);
 }
@@ -668,7 +664,6 @@ body {
 /* Contenu des cartes */
 .profil-card p,
 .competence-card p,
-.projet-card p,
 .epreuve-card p,
 .contact-card p {
     color: var(--text-medium);
@@ -703,7 +698,7 @@ body {
     text-align: center;
 }
 
-/* Section Épreuve E4 - Situations */
+/* Section Épreuve E6 - Situations */
 .situation-list {
     margin-top: 20px;
 }
@@ -779,6 +774,102 @@ body {
     color: currentColor;
 }
 
+/* Style pour la section Projets avec images */
+.projet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.projet-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.projet-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.projet-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Nouveau style pour les images de projet */
+.projet-image {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.projet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.projet-card:hover .projet-image img {
+    transform: scale(1.05);
+}
+
+/* Ajouter un overlay élégant au survol */
+.projet-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(60, 110, 156, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.projet-card:hover .projet-image::after {
+    opacity: 1;
+}
+
+.projet-card h2 {
+    color: var(--accent-coral);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.projet-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-gold);
+}
+
+.projet-card p {
+    color: var(--text-medium);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -795,7 +886,6 @@ body {
     
     .section-grid,
     .competences-grid,
-    .projet-grid,
     .epreuve-content {
         grid-template-columns: 1fr;
     }
@@ -810,6 +900,10 @@ body {
     .epreuve-container h1,
     .contact-title {
         font-size: 2rem;
+    }
+    
+    .projet-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -845,81 +939,12 @@ body {
     .shape {
         opacity: 0.1;
     }
-}
-/* Style pour la section Projets */
-.projet-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.projet-card {
-    background-color: var(--white);
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    cursor: pointer;
-}
-
-.projet-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.projet-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.projet-icon {
-    font-size: 3rem;
-    color: var(--accent-blue);
-    margin-bottom: 15px;
-    background: var(--light-gray);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-}
-
-.projet-card:hover .projet-icon {
-    transform: scale(1.1);
-}
-
-.projet-card h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: var(--accent-blue);
-    position: relative;
-}
-
-.projet-card p {
-    color: var(--text-medium);
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .projet-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
+    
     .projet-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .projet-image {
+        height: 160px;
     }
 }
